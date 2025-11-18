@@ -10,15 +10,21 @@ import "./assets/img/4geeks.ico";
   let pronoun = ['the', 'our'];
   let adj = ['great', 'big'];
   let noun = ['jogger', 'racoon'];
-  let end = ['.com', '.net', '.us', '.io', '.es'];
+  let end = ['.com', '.net', '.es'];
 
 window.onload = function() {
-  function obtenerNumeroAleatorio(max){
-    return Math.floor(Math.random() *max);
-  }
-  function obtenerElemento(){
-    let dominio = `${pronoun[obtenerNumeroAleatorio (pronoun.length)]}` + `${adj[obtenerNumeroAleatorio (adj.length)]}` + `${noun[obtenerNumeroAleatorio (noun.length)]}` + `${end[obtenerNumeroAleatorio (end.length)]}`
-  document.getElementById("dominio").innerHTML = dominio;
-  }
-  obtenerElemento()
+  function obtenerTodos(){
+    let todos = [];
+    for (let pro of pronoun){
+      for (let ad of adj){
+        for (let nou of noun){
+          for (let en of end){
+            todos.push(pro + ad + nou + en);
+          }
+        }
+      } 
+    }
+document.getElementById("todos").innerHTML = todos;
+    }
+    obtenerTodos()
 }
